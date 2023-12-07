@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694951995497",
+    "project_id": "wielcy-polacy-5813b",
+    "storage_bucket": "wielcy-polacy-5813b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694951995497:android:1e111e89e1e0cf7be35af8",
+        "android_client_info": {
+          "package_name": "com.example.wielcy_polacy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdWuHTXyGquc0xHDon5Z82H1yBFOsfJnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
