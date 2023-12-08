@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
         child: Center(
           child: Column(children: [
             SizedBox(
-              height: 100,
+              height: 80,
               width: double.infinity,
               child: Container(
                 decoration: const BoxDecoration(

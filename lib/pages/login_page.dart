@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wielcy_polacy/components/textField.dart';
 import 'package:wielcy_polacy/components/mainButton.dart';
 
 import '../Files/auth.dart';
+import '../provider/google_sign_in.dart';
 
 
 
@@ -118,7 +120,10 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () {
+                     final provider = Provider.of<GoogleSignInProvider>(context,listen: false);
+                      provider.googleLogin();
+                  },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Image.asset(

@@ -20,7 +20,7 @@ class ImageSliderWithIcons extends StatefulWidget {
 }
 
 class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
-  List<bool> isFavoriteList = List.generate(4, (index) => false); // Change 5 to the number of images
+  List<bool> isFavoriteList = List.generate(4, (index) => false); 
   int _currentIndex = 0;
 
   @override
@@ -42,7 +42,7 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
           itemCount: widget.imageUrls.length,
           itemBuilder: (BuildContext context, int index, int realIndex) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 20.0), // Adjust the space as needed
+              padding: const EdgeInsets.only(bottom: 20.0), 
               child: GestureDetector(
                 onTap: () {
                   switch(index){
@@ -57,10 +57,10 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
                     
                   }
                   print('Image clicked: ${widget.imageUrls[index]}');
-                  // You can use Navigator to navigate to a new screen
+                  
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                  borderRadius: BorderRadius.circular(8.0), 
                   child: Image.network(
                     widget.imageUrls[index],
                     fit: BoxFit.contain,
@@ -73,7 +73,7 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
           },
         ),
         Positioned(
-          bottom: 15.0, // Adjust the distance from the bottom
+          bottom: 15.0, 
           right: 70.0,
           left: 80.0,
           child: Row(
@@ -94,7 +94,7 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
                       : Icons.favorite_border,
                 ),
                 onPressed: () {
-                  // Handle icon click here
+                  
                   setState(() {
                     isFavoriteList[_currentIndex] =
                         !isFavoriteList[_currentIndex];

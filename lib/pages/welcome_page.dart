@@ -41,7 +41,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 70),
-              const MainButton(text: "Zarejestruj się", routeName: '/register_page'),
+              MainButton(text: "Zarejestruj się", onPressed: () => {Navigator.pushNamed(context, '/register_page')}),
               const SizedBox(height: 15),
               SizedBox(
                 height: 50,
