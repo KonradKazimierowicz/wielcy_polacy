@@ -28,15 +28,15 @@ class MainApp extends StatelessWidget {
       create: (context) => GoogleSignInProvider(),
       child: MaterialApp(
         title: "Wielcy Polacy",
-        initialRoute: '/',
+        initialRoute: '/main_page',
         routes: {
           '/': (context) => const WelcomePage(),
           '/login_page': (context) => const LoginPage(),
           '/register_page': (context) => const RegisterPage(),
-          '/main_page': (context) => MainPage(),
+          '/main_page': (context) => const MainPage(),
           '/menu_page': (context) => const MenuPage(),
-          '/quiz_page': (context) => QuizPage(),
-          '/profile_page': (context) => ProfilePage(),
+          '/quiz_page': (context) => const QuizPage(),
+          '/profile_page': (context) => const ProfilePage(),
         },
         theme: ThemeData(
           useMaterial3: true,

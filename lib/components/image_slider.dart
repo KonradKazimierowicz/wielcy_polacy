@@ -7,7 +7,7 @@ import 'package:wielcy_polacy/pages/characters/zgielecki.dart';
 
 class ImageSliderWithIcons extends StatefulWidget {
   final List<String> imageUrls;
-  final List<String> imageTexts; // Add a list of custom texts
+  final List<String> imageTexts; 
 
   const ImageSliderWithIcons({
     Key? key,
