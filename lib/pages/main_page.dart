@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wielcy_polacy/components/image_slider.dart';
-import 'package:wielcy_polacy/components/navbar.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:wielcy_polacy/components/image_slider.dart';
 
@@ -42,7 +41,7 @@ class MainPage extends StatelessWidget {
               "Wybierz interesującą cię postać.",
               style: TextStyle(
                 color: Color.fromRGBO(43, 42, 38, 1),
-                fontSize: 20,
+                fontSize: 25,
               ),
             ),
             
@@ -60,7 +59,6 @@ class MainPage extends StatelessWidget {
                 'Stefan Drzewiecki',
               ],
             ),
-            //NavBar(),
           ]),
         ),
       ),

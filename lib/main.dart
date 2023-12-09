@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:wielcy_polacy/pages/menu_page.dart';
+import 'package:wielcy_polacy/page_navigator.dart';
 import 'package:wielcy_polacy/pages/profile_page.dart';
 import 'package:wielcy_polacy/pages/quiz_page.dart';
 import 'package:wielcy_polacy/provider/google_sign_in.dart';
-import 'pages/welcome_page.dart';
-import 'pages/login_page.dart';
-import 'pages/register_page.dart';
+import 'pages/starting/welcome_page.dart';
+import 'pages/starting/login_page.dart';
+import 'pages/starting/register_page.dart';
 import 'pages/main_page.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -28,7 +29,7 @@ class MainApp extends StatelessWidget {
       create: (context) => GoogleSignInProvider(),
       child: MaterialApp(
         title: "Wielcy Polacy",
-        initialRoute: '/main_page',
+        initialRoute: '/navbar',
         routes: {
           '/': (context) => const WelcomePage(),
           '/login_page': (context) => const LoginPage(),
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
           '/menu_page': (context) => const MenuPage(),
           '/quiz_page': (context) => const QuizPage(),
           '/profile_page': (context) => const ProfilePage(),
+          '/navbar':(context) =>  NavBar(),
         },
         theme: ThemeData(
           useMaterial3: true,

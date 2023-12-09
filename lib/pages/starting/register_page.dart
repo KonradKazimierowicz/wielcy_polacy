@@ -4,7 +4,7 @@ import 'package:wielcy_polacy/components/textField.dart';
 import 'package:wielcy_polacy/components/mainButton.dart';
 import 'package:wielcy_polacy/provider/google_sign_in.dart';
 
-import '../Files/auth.dart';
+import '../../Files/auth.dart';
 
 
 

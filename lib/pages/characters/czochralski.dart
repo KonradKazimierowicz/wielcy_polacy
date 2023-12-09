@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:wielcy_polacy/components/mainButton.dart';
-import 'package:wielcy_polacy/components/navbar.dart';
 import 'package:wielcy_polacy/pages/characters/description/czochralski_desc.dart';
 
 import '../../components/appbar.dart';
@@ -54,7 +53,7 @@ class Czochralski extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const CzochralskiDesc()));
+                        builder: (context) =>  CzochralskiDesc()));
               },
             ),
             //const NavBar(),

@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:wielcy_polacy/components/textField.dart';
 import 'package:wielcy_polacy/components/mainButton.dart';
 
-import '../Files/auth.dart';
-import '../provider/google_sign_in.dart';
+import '../../Files/auth.dart';
+import '../../provider/google_sign_in.dart';
 
 
 
