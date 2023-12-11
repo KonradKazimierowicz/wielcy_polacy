@@ -12,7 +12,7 @@ Future<void> signUp(BuildContext context, String email, String pass, String repe
       );
 
     
-      Navigator.pushNamed(context, '/main_page');
+      Navigator.pushNamed(context, '/navbar');
     } on FirebaseAuthException catch (e) {
       print(e.code);
       authErrorToast(e.code);
@@ -32,7 +32,7 @@ Future<void> signIn(BuildContext context, String email, String pass) async {
       password: pass,
     );
     // ignore: use_build_context_synchronously
-    Navigator.pushNamed(context, '/main_page');
+    Navigator.pushNamed(context, '/navbar');
   } on FirebaseAuthException catch (e) {
     print(e.code);
     authErrorToast(e.code);

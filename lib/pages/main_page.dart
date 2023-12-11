@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wielcy_polacy/components/image_slider.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:wielcy_polacy/components/image_slider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -13,9 +13,8 @@ class Czochralski extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Jan Czochralski",
-        onLeadingPressed: () => Navigator.pop(context)
-      ),
+          title: "Jan Czochralski",
+          onLeadingPressed: () => Navigator.pop(context)),
       body: SafeArea(
         child: Column(
           children: [
@@ -35,7 +34,7 @@ class Czochralski extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(15.0),
               child: Center(
                 child: Text(
                   "Polski chemik, metaloznawca. Wynalazca między innymi powszechnie stosowanej metody otrzymywania monokryształów krzemu, będącej podstawą procesu produkcji układów scalonych. Najczęściej cytowany polski uczony, radca Izby Przemysłowo-Handlowej w Warszawie",
@@ -46,17 +45,14 @@ class Czochralski extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
             MainButton(
               text: "Dowiedz się więcej",
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>  CzochralskiDesc()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CzochralskiDesc()));
               },
             ),
-            //const NavBar(),
           ],
         ),
       ),

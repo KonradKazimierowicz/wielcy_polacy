@@ -13,13 +13,13 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  PersistentTabController _controller = PersistentTabController();
+  final PersistentTabController _controller = PersistentTabController(initialIndex: 1);
 
-  List<Widget> _widgetOptions = <Widget>[
-    MenuPage(),
-    MainPage(),
-    QuizPage(),
-    ProfilePage(),
+  final List<Widget> _widgetOptions = <Widget>[
+    const MenuPage(),
+    const MainPage(),
+    const QuizPage(),
+    const ProfilePage(),
   ];
 
   @override
@@ -29,7 +29,7 @@ class _NavBarState extends State<NavBar> {
       context,
       controller: _controller,
       screens: _widgetOptions,
-      backgroundColor: Color.fromRGBO(242, 238, 232, 1),
+      backgroundColor: const Color.fromRGBO(242, 238, 232, 1),
       navBarHeight: 80,
       navBarStyle: NavBarStyle.style1,
       decoration: const NavBarDecoration(
@@ -44,32 +44,32 @@ class _NavBarState extends State<NavBar> {
           ]),
       items: [
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.menu_outlined),
+          icon: const Icon(Icons.menu_outlined),
           title: "Menu",
-          textStyle: TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
-          activeColorPrimary: Color.fromRGBO(43, 42, 38, 1),
-          inactiveColorPrimary: Color.fromRGBO(43, 42, 38, 0.6),
+          textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
+          activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
+          inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.home_outlined),
+          icon: const Icon(Icons.home_outlined),
           title: "Główna",
-          textStyle: TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
-          activeColorPrimary: Color.fromRGBO(43, 42, 38, 1),
-          inactiveColorPrimary: Color.fromRGBO(43, 42, 38, 0.6),
+          textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
+          activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
+          inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.quiz_outlined),
+          icon: const Icon(Icons.quiz_outlined),
           title: "Quiz",
-          textStyle: TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
-          activeColorPrimary: Color.fromRGBO(43, 42, 38, 1),
-          inactiveColorPrimary: Color.fromRGBO(43, 42, 38, 0.6),
+          textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
+          activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
+          inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.person_outlined),
+          icon: const Icon(Icons.person_outlined),
           title: "Profil",
-          textStyle: TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
-          activeColorPrimary: Color.fromRGBO(43, 42, 38, 1),
-          inactiveColorPrimary: Color.fromRGBO(43, 42, 38, 0.6),
+          textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
+          activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
+          inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         ),
       ],
       onItemSelected: (index) {
