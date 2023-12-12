@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:wielcy_polacy/pages/menu_page.dart';
@@ -7,6 +8,7 @@ import 'package:wielcy_polacy/page_navigator.dart';
 import 'package:wielcy_polacy/pages/profile_page.dart';
 import 'package:wielcy_polacy/pages/quiz_page.dart';
 import 'package:wielcy_polacy/provider/google_sign_in.dart';
+import 'pages/quiz/score_screen.dart';
 import 'pages/starting/welcome_page.dart';
 import 'pages/starting/login_page.dart';
 import 'pages/starting/register_page.dart';
@@ -38,7 +40,7 @@ class MainApp extends StatelessWidget {
             
             return ChangeNotifierProvider(
               create: (context) => GoogleSignInProvider(),
-              child: MaterialApp(
+              child: GetMaterialApp(
                 title: "Wielcy Polacy",
                 initialRoute: '/navbar',
                 routes: {
@@ -79,7 +81,8 @@ class MainApp extends StatelessWidget {
                   '/menu_page': (context) => const MenuPage(),
                   '/quiz_page': (context) => const QuizPage(),
                   '/profile_page': (context) => const ProfilePage(),
-                  '/navbar': (context) => NavBar(), // Add this line
+                  '/navbar': (context) => NavBar(), 
+                   "/ScoreScreen": (context) => ScoreScreen(),
                 },
                 theme: ThemeData(
                   useMaterial3: true,
