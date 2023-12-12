@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../components/mainButton.dart';
 import '../constants.dart';
 import '../questions.dart';
 import 'option.dart';
@@ -9,7 +10,6 @@ import 'question_controller.dart';
 class QuestionCard extends StatelessWidget {
   const QuestionCard({
     required Key? key,
-    // it means we have to pass this
     required this.question,
   }) : super(key: key);
 
@@ -18,11 +18,13 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionController controller = Get.put(QuestionController());
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: const EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color.fromRGBO(242, 238, 232, 1),
+        border: Border.all(color: primaryColor, width: 3),
         borderRadius: BorderRadius.circular(25),
       ),
       child: Column(
@@ -32,7 +34,7 @@ class QuestionCard extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline6
-                ?.copyWith(color: kBlackColor),
+                ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
           ),
           const SizedBox(height: kDefaultPadding / 2),
           ...List.generate(
@@ -43,6 +45,8 @@ class QuestionCard extends StatelessWidget {
               press: () => controller.checkAns(question, index),
             ),
           ),
+          SizedBox(height: 40,),
+          MainButton(text: "Następne", onPressed: () => controller.nextQuestion(),)
         ],
       ),
     );

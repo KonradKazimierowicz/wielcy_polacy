@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:wielcy_polacy/components/mainButton.dart';
+import 'package:wielcy_polacy/pages/quiz_page.dart';
 
 import 'components/question_controller.dart';
 import 'constants.dart';
@@ -13,26 +16,43 @@ class ScoreScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          
           Column(
             children: [
-              Spacer(flex: 3),
-              Text(
-                "Score",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3
-                    ?.copyWith(color: kSecondaryColor),
+              AspectRatio(
+                aspectRatio:
+                    1 / 1, // Change the aspect ratio according to your image
+                child: Image.asset(
+                  'img/quiz1.png',
+                  fit: BoxFit.cover, // Ensure the image covers the entire space
+                ),
               ),
-              Spacer(),
-              Text(
-                "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    ?.copyWith(color: kSecondaryColor),
+              SizedBox(
+                height: 20,
+                width: 500,
               ),
-              Spacer(flex: 3),
+              Text("Wynik",
+                  style: TextStyle(
+                    color: primaryColor,
+                    fontSize: 40,
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                  "${_qnController.numOfCorrectAns}/${_qnController.questions.length}",
+                  style: TextStyle(
+                    color: primaryColor,
+                    fontSize: 30,
+                  )),
+              SizedBox(
+                height: 40,
+              ),
+              MainButton(
+                text: "Wróć",
+                onPressed: () {
+                  Navigator.pushNamed(context, "/navbar");
+                },
+              )
             ],
           )
         ],

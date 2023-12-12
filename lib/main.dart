@@ -70,7 +70,7 @@ class MainApp extends StatelessWidget {
             
             return ChangeNotifierProvider(
               create: (context) => GoogleSignInProvider(),
-              child: MaterialApp(
+              child: GetMaterialApp(
                 title: "Wielcy Polacy",
                 initialRoute: '/',
                 routes: {
@@ -82,7 +82,7 @@ class MainApp extends StatelessWidget {
                   '/quiz_page': (context) => const QuizPage(),
                   '/profile_page': (context) => const ProfilePage(),
                   '/navbar': (context) => NavBar(), 
-                   "/ScoreScreen": (context) => ScoreScreen(),
+                  
                 },
                 theme: ThemeData(
                   useMaterial3: true,

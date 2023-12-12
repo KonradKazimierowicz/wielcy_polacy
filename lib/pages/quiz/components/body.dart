@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wielcy_polacy/components/mainButton.dart';
 
 import '../constants.dart';
 import 'progress_bar.dart';
@@ -35,25 +36,29 @@ class Body extends StatelessWidget {
                   () => Text.rich(
                     TextSpan(
                       text:
-                          "Question ${_questionController.questionNumber.value}",
+                          "Pytanie ${_questionController.questionNumber.value}",
                       style: Theme.of(context)
                           .textTheme
                           .headline4
-                          ?.copyWith(color: kSecondaryColor),
+                          ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
                       children: [
                         TextSpan(
                           text: "/${_questionController.questions.length}",
                           style: Theme.of(context)
                               .textTheme
                               .headline5
-                              ?.copyWith(color: kSecondaryColor),
+                              ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
                         ),
                       ],
                     ),
                   ),
                 ),
+                
               ),
-              Divider(thickness: 1.5),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Divider(thickness: 1.5, color: primaryColor,),
+              ),
               SizedBox(height: kDefaultPadding),
               Expanded(
                 child: PageView.builder(
@@ -66,6 +71,7 @@ class Body extends StatelessWidget {
                       question: _questionController.questions[index], key: null,),
                 ),
               ),
+             
             ],
           ),
         )
