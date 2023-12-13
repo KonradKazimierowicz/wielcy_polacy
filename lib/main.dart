@@ -8,7 +8,6 @@ import 'package:wielcy_polacy/page_navigator.dart';
 import 'package:wielcy_polacy/pages/profile_page.dart';
 import 'package:wielcy_polacy/pages/quiz_page.dart';
 import 'package:wielcy_polacy/provider/google_sign_in.dart';
-import 'pages/quiz/score_screen.dart';
 import 'pages/starting/welcome_page.dart';
 import 'pages/starting/login_page.dart';
 import 'pages/starting/register_page.dart';

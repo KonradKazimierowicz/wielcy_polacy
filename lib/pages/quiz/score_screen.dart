@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wielcy_polacy/components/mainButton.dart';
-import 'package:wielcy_polacy/pages/quiz_page.dart';
 
 import 'components/question_controller.dart';
 import 'constants.dart';

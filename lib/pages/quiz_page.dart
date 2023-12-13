@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wielcy_polacy/components/image_slider.dart';
 import 'package:wielcy_polacy/pages/quiz/quiz_screen.dart';
 
 void main() {

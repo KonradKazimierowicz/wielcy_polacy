@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wielcy_polacy/components/mainButton.dart';
 
 import '../constants.dart';
 import 'progress_bar.dart';
