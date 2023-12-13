@@ -7,56 +7,44 @@ import 'question_card.dart';
 import 'question_controller.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key? key,
-  }) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // So that we have acccess our controller
+    // So that we have access to our controller
     QuestionController _questionController = Get.put(QuestionController());
+
     return Stack(
       children: [
-        // SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
         SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: ProgressBar(),
               ),
               SizedBox(height: kDefaultPadding),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: Obx(
                   () => Text.rich(
                     TextSpan(
-                      text:
-                          "Pytanie ${_questionController.questionNumber.value}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
+                      text: "Pytanie ${_questionController.questionNumber.value}",
+                      style: Theme.of(context).textTheme.headline4?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
                       children: [
                         TextSpan(
                           text: "/${_questionController.questions.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
+                          style: Theme.of(context).textTheme.headline5?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
                         ),
                       ],
                     ),
                   ),
                 ),
-                
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Divider(thickness: 1.5, color: primaryColor,),
+                child: Divider(thickness: 1.5, color: primaryColor),
               ),
               SizedBox(height: kDefaultPadding),
               Expanded(
@@ -66,11 +54,9 @@ class Body extends StatelessWidget {
                   controller: _questionController.pageController,
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
-                  itemBuilder: (context, index) => QuestionCard(
-                      question: _questionController.questions[index], key: null,),
+                  itemBuilder: (context, index) => QuestionCard(question: _questionController.questions[index], key: key,),
                 ),
               ),
-             
             ],
           ),
         )

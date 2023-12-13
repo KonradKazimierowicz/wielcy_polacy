@@ -7,7 +7,7 @@ import 'package:wielcy_polacy/pages/characters/zgielecki.dart';
 
 class ImageSliderWithIcons extends StatefulWidget {
   final List<String> imageUrls;
-  final List<String> imageTexts; 
+  final List<String> imageTexts;
 
   const ImageSliderWithIcons({
     Key? key,
@@ -20,17 +20,20 @@ class ImageSliderWithIcons extends StatefulWidget {
 }
 
 class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
-  List<bool> isFavoriteList = List.generate(4, (index) => false); 
+  List<bool> isFavoriteList = List.generate(4, (index) => false);
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         CarouselSlider.builder(
           options: CarouselOptions(
-            height: 635.0,
+            height: screenHeight * 0.65, 
             enlargeCenterPage: true,
             autoPlay: false,
             onPageChanged: (index, _) {
@@ -42,30 +45,17 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
           itemCount: widget.imageUrls.length,
           itemBuilder: (BuildContext context, int index, int realIndex) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 20.0), 
+              padding: const EdgeInsets.only(bottom: 20.0),
               child: GestureDetector(
                 onTap: () {
-                  switch(index){
-                    case 0:
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Szczepaniak()));
-                    case 1:
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Czochralski()));
-                    case 2:
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Zgielecki()));
-                    case 3:
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Drzewiecki()));
-                    
-                  }
-                  print('Image clicked: ${widget.imageUrls[index]}');
-                  
+                  navigateToCharacterPage(index);
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0), 
-                  child: Image.network(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
                     widget.imageUrls[index],
                     fit: BoxFit.contain,
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
+                    width: screenWidth,
                   ),
                 ),
               ),
@@ -73,9 +63,9 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
           },
         ),
         Positioned(
-          bottom: 15.0, 
-          right: 70.0,
-          left: 80.0,
+          bottom: screenWidth * 0.02,
+          right: screenWidth * 0.1,
+          left: screenWidth * 0.1,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -83,7 +73,7 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
                 widget.imageTexts[_currentIndex],
                 style: const TextStyle(
                   color: Color.fromRGBO(43, 42, 38, 1),
-                  fontSize: 20.0,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -94,13 +84,10 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
                       : Icons.favorite_border,
                 ),
                 onPressed: () {
-                  
                   setState(() {
                     isFavoriteList[_currentIndex] =
                         !isFavoriteList[_currentIndex];
                   });
-                  print(
-                      'Icon clicked for image: ${widget.imageUrls[_currentIndex]}');
                 },
                 color: Color.fromRGBO(43, 42, 38, 1),
               ),
@@ -127,10 +114,28 @@ class _ImageSliderWithIconsState extends State<ImageSliderWithIcons> {
       height: 8.0,
       margin: EdgeInsets.symmetric(horizontal: 4.0),
       decoration: BoxDecoration(
-        
         shape: BoxShape.circle,
-        color: _currentIndex == index ? const Color.fromRGBO(184, 158, 119, 1) : Colors.grey,
+        color: _currentIndex == index
+            ? const Color.fromRGBO(184, 158, 119, 1)
+            : Colors.grey,
       ),
     );
+  }
+
+  void navigateToCharacterPage(int index) {
+    switch (index) {
+      case 0:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Szczepaniak()));
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Czochralski()));
+        break;
+      case 2:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Zgielecki()));
+        break;
+      case 3:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Drzewiecki()));
+        break;
+    }
   }
 }

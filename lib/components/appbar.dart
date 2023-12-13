@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: const Color.fromRGBO(184, 158, 119, 1),
       elevation: 0,
       centerTitle: true,
-      toolbarHeight: 80,
+      toolbarHeight: 100,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),

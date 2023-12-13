@@ -28,6 +28,7 @@ class Szczepaniak extends StatelessWidget {
                   child: Image.asset(
                     'img/szczepaniak.png',
                     fit: BoxFit.contain,
+                    width: MediaQuery.of(context).size.width*0.85,
                   ),
                 ),
               ],
@@ -45,7 +46,7 @@ class Szczepaniak extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             MainButton(
               text: "Dowiedz się więcej",
               onPressed: () {

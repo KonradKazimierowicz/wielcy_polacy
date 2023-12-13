@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:wielcy_polacy/pages/menu_page.dart';
@@ -17,6 +17,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -32,72 +33,39 @@ class MainApp extends StatelessWidget {
       future: FirebaseAuth.instance.authStateChanges().first,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          
-          return CircularProgressIndicator(); 
+          return MaterialApp(
+            home: Scaffold(body: CircularProgressIndicator()),
+          );
         } else {
-          if (snapshot.hasData && snapshot.data != null) {
-            
-            return ChangeNotifierProvider(
-              create: (context) => GoogleSignInProvider(),
-              child: GetMaterialApp(
-                title: "Wielcy Polacy",
-                initialRoute: '/navbar',
-                routes: {
-                  '/navbar': (context) => NavBar(),
-                  '/login_page': (context) => const LoginPage(),
-                  '/register_page': (context) => const RegisterPage(),
-                  '/main_page': (context) => const MainPage(),
-                  '/menu_page': (context) => const MenuPage(),
-                  '/quiz_page': (context) => const QuizPage(),
-                  '/profile_page': (context) => const ProfilePage(),
-                },
-                theme: ThemeData(
-                  useMaterial3: true,
-                  colorScheme: ColorScheme.fromSeed(
-                    seedColor: const Color.fromRGBO(184, 158, 119, 1),
-                    background: const Color.fromRGBO(242, 238, 232, 1),
-                    brightness: Brightness.light,
-                  ),
-                  textTheme: GoogleFonts.nunitoTextTheme(
-                    Theme.of(context).textTheme,
-                  ),
+          return ChangeNotifierProvider(
+            create: (context) => GoogleSignInProvider(),
+            child: GetMaterialApp(
+              title: "Wielcy Polacy",
+              initialRoute: snapshot.hasData ? '/navbar' : '/',
+              routes: {
+                '/': (context) => WelcomePage(),
+                '/navbar': (context) => NavBar(),
+                '/login_page': (context) => const LoginPage(),
+                '/register_page': (context) => const RegisterPage(),
+                '/main_page': (context) => const MainPage(),
+                '/menu_page': (context) => const MenuPage(),
+                '/quiz_page': (context) => const QuizPage(),
+                '/profile_page': (context) => const ProfilePage(),
+              },
+              theme: ThemeData(
+                useMaterial3: true,
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color.fromRGBO(184, 158, 119, 1),
+                  background: const Color.fromRGBO(242, 238, 232, 1),
+                  brightness: Brightness.light,
                 ),
-                debugShowCheckedModeBanner: false,
-              ),
-            );
-          } else {
-            
-            return ChangeNotifierProvider(
-              create: (context) => GoogleSignInProvider(),
-              child: GetMaterialApp(
-                title: "Wielcy Polacy",
-                initialRoute: '/',
-                routes: {
-                  '/': (context) => const WelcomePage(),
-                  '/login_page': (context) => const LoginPage(),
-                  '/register_page': (context) => const RegisterPage(),
-                  '/main_page': (context) => const MainPage(),
-                  '/menu_page': (context) => const MenuPage(),
-                  '/quiz_page': (context) => const QuizPage(),
-                  '/profile_page': (context) => const ProfilePage(),
-                  '/navbar': (context) => NavBar(), 
-                  
-                },
-                theme: ThemeData(
-                  useMaterial3: true,
-                  colorScheme: ColorScheme.fromSeed(
-                    seedColor: const Color.fromRGBO(184, 158, 119, 1),
-                    background: const Color.fromRGBO(242, 238, 232, 1),
-                    brightness: Brightness.light,
-                  ),
-                  textTheme: GoogleFonts.nunitoTextTheme(
-                    Theme.of(context).textTheme,
-                  ),
+                textTheme: GoogleFonts.nunitoTextTheme(
+                  Theme.of(context).textTheme,
                 ),
-                debugShowCheckedModeBanner: false,
               ),
-            );
-          }
+              debugShowCheckedModeBanner: false,
+            ),
+          );
         }
       },
     );

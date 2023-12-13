@@ -44,23 +44,21 @@ class QuestionController extends GetxController
 
   int n = 0;
 
-  @override
-  void onInit() {
-    _animationController =
-        AnimationController(duration: const Duration(seconds: 30), vsync: this);
-    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
-      ..addListener(() {
-        update();
-      });
+@override
+void onInit() {
+  
+  
+  _animationController = AnimationController(duration: const Duration(seconds: 30), vsync: this);
+  _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
+    ..addListener(() {
+      update();
+    });
 
-    _animationController.forward().whenComplete(nextQuestion);
-    _pageController = PageController();
+  _animationController.forward().whenComplete(nextQuestion);
+  _pageController = PageController();
 
-    // Reset the quiz when the controller is initialized
-    resetQuiz();
-
-    super.onInit();
-  }
+  super.onInit();
+}
 
   @override
   void onClose() {
@@ -69,16 +67,7 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
-  void resetQuiz() {
-    _isAnswered = false;
-    _correctAns = 0;
-    _selectedAns = 0;
-    _questionNumber.value = 1;
-    _numOfCorrectAns = 0;
-
-    _animationController.reset();
-    _animationController.forward().whenComplete(nextQuestion);
-  }
+ 
 
   void checkAns(Question question, int selectedIndex) {
     if (!_isAnswered) {
@@ -104,10 +93,10 @@ class QuestionController extends GetxController
 
   void nextQuestion() {
     if (_questionNumber.value != _questions.length) {
-      _isAnswered = false; // Reset the flag here
+      _isAnswered = false; 
 
       if (_isAnswered) {
-        // If an answer has been given, proceed to the next question
+        
         _pageController.nextPage(
           duration: const Duration(milliseconds: 250),
           curve: Curves.ease,
@@ -150,4 +139,5 @@ class QuestionController extends GetxController
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
+ 
 }

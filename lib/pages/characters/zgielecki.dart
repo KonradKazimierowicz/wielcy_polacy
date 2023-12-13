@@ -28,6 +28,7 @@ class Zgielecki extends StatelessWidget {
                   child: Image.asset(
                     'img/zgielecki.png',
                     fit: BoxFit.contain,
+                    width: MediaQuery.of(context).size.width*0.85,
                   ),
                 ),
               ],
@@ -45,7 +46,7 @@ class Zgielecki extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             MainButton(
               text: "Dowiedz się więcej",
               onPressed: () {
