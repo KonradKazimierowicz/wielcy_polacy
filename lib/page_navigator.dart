@@ -19,6 +19,7 @@ class _NavBarState extends State<NavBar> {
     // const MenuPage(),
     const QuizPage(),
     const MainPage(),
+    
      ProfilePage(),
   ];
 

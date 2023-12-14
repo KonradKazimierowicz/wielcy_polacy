@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:wielcy_polacy/pages/quiz/components/question_controller.dart';
 import 'package:wielcy_polacy/pages/quiz/quiz_screen.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,21 +63,30 @@ class QuizPage extends StatelessWidget {
                 height: 20,
               ),
               IconButton(
-                icon: Image.asset('img/quiz1.png',
-                    height: MediaQuery.of(context).size.height * 0.30),
-                onPressed: () {
-                  // QuestionController().restartQuiz();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => QuizScreen()));
-                },
-              ),
+                  icon: Image.asset('img/quiz1.png',
+                      height: MediaQuery.of(context).size.height * 0.30),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => QuizScreen()));
+                    QuestionController().resetQuiz();
+                  }),
               const SizedBox(
                 height: 20,
               ),
               IconButton(
                 icon: Image.asset('img/quiz2.png',
                     height: MediaQuery.of(context).size.height * 0.30),
-                onPressed: () {},
+                onPressed: () {
+                  Fluttertoast.showToast(
+                    msg: "Error: Tymczasowo niedostępne.",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                },
               ),
             ],
           ),

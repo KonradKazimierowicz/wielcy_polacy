@@ -42,17 +42,17 @@ class _ProfilePageState extends State<ProfilePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Edytuj nazwę'),
+          title: const Text('Edytuj nazwę'),
           content: TextField(
             controller: _nameController,
-            decoration: InputDecoration(hintText: 'Wpisz nową nazwę'),
+            decoration: const InputDecoration(hintText: 'Wpisz nową nazwę'),
           ),
           actions: [
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Anuluj'),
+              child: const Text('Anuluj'),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -64,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 }
                 Navigator.pop(context);
               },
-              child: Text('Zapisz'),
+              child: const Text('Zapisz'),
             ),
           ],
         );
@@ -80,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
         width: 50,
       );
     } else {
-      return Icon(
+      return const Icon(
         Icons.account_circle,
         size: 50,
       );
@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         Text(
           displayName.isNotEmpty ? displayName : email,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
         ),
         const SizedBox(height: 10),
       ],
@@ -141,7 +141,7 @@ class _ProfilePageState extends State<ProfilePage> {
       Restart.restartApp();
     } catch (e) {
       print("Error during logout: $e");
-      // Handle the error appropriately
+     
     }
   }
 
@@ -165,11 +165,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     height: 100,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color.fromRGBO(184, 158, 119, 1),
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(20)),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "Profil",
                         style: TextStyle(
@@ -188,32 +189,36 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 80,
                         width: 350,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(242, 238, 232, 1),
+                          color: const Color.fromRGBO(242, 238, 232, 1),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.3),
                               spreadRadius: 2,
                               blurRadius: 12,
-                              offset: Offset(0, 2),
+                              offset: const Offset(0, 2),
                             ),
                           ],
                         ),
                         child: Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                            const Padding(
+                              padding:
+                                  EdgeInsets.symmetric(horizontal: 5),
                             ),
                             _profileImage(),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Expanded(
                               child: _display(),
                             ),
-                            IconButton(
-                              icon: Icon(Icons.edit),
-                              onPressed: _editProfileName,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: IconButton(
+                                icon: const Icon(Icons.edit),
+                                onPressed: _editProfileName,
+                              ),
                             ),
                           ],
                         ),
@@ -227,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: _openFavoritesWindow,
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.favorite_border, size: 25),
@@ -239,12 +244,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: _openAchievementsWindow,
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.emoji_events, size: 25),
@@ -256,12 +261,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: _openFAQWindow,
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.question_answer, size: 25),
@@ -273,8 +278,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              SizedBox(height: 300),
+              const SizedBox(height: 20),
+              const SizedBox(height: 300),
               IconButton(
                 icon: Image.asset('img/signOut.png'),
                 onPressed: _logout,
@@ -292,10 +297,8 @@ class FavoritesWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Ulubione",
-        onLeadingPressed: () => Navigator.pop(context)
-      ),
-      body: Center(
+          title: "Ulubione", onLeadingPressed: () => Navigator.pop(context)),
+      body: const Center(
         child: Text(
           "Miejsce na ulubione postacie",
           style: TextStyle(fontSize: 20),
@@ -310,10 +313,8 @@ class AchievementsWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Osiągnięcia",
-        onLeadingPressed: () => Navigator.pop(context)
-      ),
-      body: Center(
+          title: "Osiągnięcia", onLeadingPressed: () => Navigator.pop(context)),
+      body: const Center(
         child: Text(
           "Miejsce na osiągnięcia",
           style: TextStyle(fontSize: 20),
@@ -328,14 +329,84 @@ class FAQWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "FAQ",
-        onLeadingPressed: () => Navigator.pop(context)
-      ),
-      body: Center(
-        child: Text(
-          "Najczęściej zadawane pytania",
-          style: TextStyle(fontSize: 20),
-          
+          title: "FAQ", onLeadingPressed: () => Navigator.pop(context)),
+      body: const Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 40,
+            ),
+            Text(
+              "1. Na czym polega aplikacja?",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Color.fromRGBO(43, 42, 38, 1),
+              ),
+            ),
+            Divider(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "Aplikacja to wygodne źródło wiedzy o wielkich polakach takich jak Jan Czochralski, Witold Zglenicki, Stefan Drzewiecki i Jan Szczepaniak. \nW przystępny sposób pokazuje najważniejsze informacje o tych postaciach.",
+                style:
+                    TextStyle(
+                      color: Color.fromRGBO(43, 42, 38, 1), 
+                      fontSize: 20),
+              ),
+            ),
+            SizedBox(height: 30,),
+            Text(
+              "2. Czy można korzystać z aplikacji offline?",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Color.fromRGBO(43, 42, 38, 1),
+              ),
+            ),
+            Divider(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "Tak, z aplikacji można po zalogowaniu korzystać bez użycia internetu. Sprawia to, że jest ona jeszcze bardziej wszechstronna",
+                style:
+                    TextStyle(
+                      color: Color.fromRGBO(43, 42, 38, 1), 
+                      fontSize: 20),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "3. Czy aplikacja oferuje treści multimedialne?",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Color.fromRGBO(43, 42, 38, 1),
+              ),
+            ),
+            Divider(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "Aplikacja docelowo będzie zawierać specjalną zakładkę poświęconą multimediom. Na ten moment występują tylko przy opisach postacii.",
+                style:
+                    TextStyle(
+                      color: Color.fromRGBO(43, 42, 38, 1), 
+                      fontSize: 20),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -5,6 +5,10 @@ import 'package:wielcy_polacy/pages/characters/drzewiecki.dart';
 import 'package:wielcy_polacy/pages/characters/szczepaniak.dart';
 import 'package:wielcy_polacy/pages/characters/zgielecki.dart';
 
+import 'package:firebase_storage/firebase_storage.dart';
+
+final storage = FirebaseStorage.instance;
+
 class ImageSliderWithIcons extends StatefulWidget {
   final List<String> imageUrls;
   final List<String> imageTexts;
