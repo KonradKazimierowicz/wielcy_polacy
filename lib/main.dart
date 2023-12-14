@@ -50,7 +50,7 @@ class MainApp extends StatelessWidget {
                 '/main_page': (context) => const MainPage(),
                 '/menu_page': (context) => const MenuPage(),
                 '/quiz_page': (context) => const QuizPage(),
-                '/profile_page': (context) => const ProfilePage(),
+                '/profile_page': (context) =>  ProfilePage(),
               },
               theme: ThemeData(
                 useMaterial3: true,

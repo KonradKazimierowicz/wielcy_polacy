@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:wielcy_polacy/pages/quiz/components/question_controller.dart';
 import 'package:wielcy_polacy/pages/quiz/quiz_screen.dart';
 
@@ -21,9 +23,9 @@ class QuizPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
           child: Column(
             children: [
               SizedBox(
@@ -62,7 +64,7 @@ class QuizPage extends StatelessWidget {
                 icon: Image.asset('img/quiz1.png',
                     height: MediaQuery.of(context).size.height * 0.30),
                 onPressed: () {
-                  QuestionController().onInit(); 
+                  // QuestionController().restartQuiz();
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => QuizScreen()));
                 },

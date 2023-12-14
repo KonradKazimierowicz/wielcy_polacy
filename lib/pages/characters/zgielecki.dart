@@ -11,12 +11,12 @@ class Zgielecki extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-          title: "Witold Zgielecki",
-          onLeadingPressed: () => Navigator.pop(context)),
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        appBar: CustomAppBar(
+            title: "Witold Zgielecki",
+            onLeadingPressed: () => Navigator.pop(context)),
+        body: Column(
           children: [
             const SizedBox(
               height: 15,
@@ -28,7 +28,7 @@ class Zgielecki extends StatelessWidget {
                   child: Image.asset(
                     'img/zgielecki.png',
                     fit: BoxFit.contain,
-                    width: MediaQuery.of(context).size.width*0.85,
+                    width: MediaQuery.of(context).size.width * 0.85,
                   ),
                 ),
               ],

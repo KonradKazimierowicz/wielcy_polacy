@@ -11,52 +11,54 @@ class Czochralski extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
+    return SafeArea(
+      child: Scaffold(
+           appBar: CustomAppBar(
           title: "Jan Czochralski",
           onLeadingPressed: () => Navigator.pop(context)),
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 15,
-            ),
-            Stack(
-              children: [
-                Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'img/czochralski.png',
-                    fit: BoxFit.contain,
-                    width: MediaQuery.of(context).size.width*0.85,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            const Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Center(
-                child: Text(
-                  "Polski chemik, metaloznawca. Wynalazca między innymi powszechnie stosowanej metody otrzymywania monokryształów krzemu, będącej podstawą procesu produkcji układów scalonych. Najczęściej cytowany polski uczony, radca Izby Przemysłowo-Handlowej w Warszawie",
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.center,
+      body: Column(
+        children: [
+          const SizedBox(
+            height: 15,
+          ),
+          Stack(
+            children: [
+              Container(
+                color: Colors.transparent,
+                child: Image.asset(
+                  'img/czochralski.png',
+                  fit: BoxFit.contain,
+                  width: MediaQuery.of(context).size.width*0.85,
                 ),
               ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Center(
+              child: Text(
+                "Polski chemik, metaloznawca. Wynalazca między innymi powszechnie stosowanej metody otrzymywania monokryształów krzemu, będącej podstawą procesu produkcji układów scalonych. Najczęściej cytowany polski uczony, radca Izby Przemysłowo-Handlowej w Warszawie",
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-            const SizedBox(height: 10),
-            MainButton(
-              text: "Dowiedz się więcej",
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CzochralskiDesc()));
-              },
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 10),
+          MainButton(
+            text: "Dowiedz się więcej",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CzochralskiDesc()));
+            },
+          ),
+        ],
       ),
-    );
+    ));
   }
 }
+
+     
+     

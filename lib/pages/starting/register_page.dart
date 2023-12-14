@@ -23,9 +23,9 @@ class _RegisterPageState extends State<RegisterPage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,8 +100,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        final provider =
-                            Provider.of<GoogleSignInProvider>(context, listen: false);
+                        final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false);
                         provider.googleLogin(context);
                       },
                       child: Padding(

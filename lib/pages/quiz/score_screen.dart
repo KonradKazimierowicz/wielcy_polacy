@@ -49,6 +49,7 @@ class ScoreScreen extends StatelessWidget {
               MainButton(
                 text: "Wróć",
                 onPressed: () {
+                  
                   Navigator.pushNamed(context, "/navbar");
                 },
               )

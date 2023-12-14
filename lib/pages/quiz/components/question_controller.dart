@@ -105,7 +105,7 @@ void onInit() {
         _animationController.reset();
         _animationController.forward().whenComplete(nextQuestion);
       } else {
-        _handleError();
+        //_handleError();
 
         _pageController.nextPage(
           duration: const Duration(milliseconds: 250),
@@ -120,21 +120,21 @@ void onInit() {
     }
   }
 
-  void _handleError() {
-    String errorMessage = 'Error: Brak odpowiedzi w typaniu $_questionNumber';
+  // void _handleError() {
+  //   String errorMessage = 'Error: Brak odpowiedzi w typaniu $_questionNumber';
 
-    print(errorMessage);
+  //   print(errorMessage);
 
-    Fluttertoast.showToast(
-      msg: errorMessage,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
-  }
+  //   Fluttertoast.showToast(
+  //     msg: errorMessage,
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.BOTTOM,
+  //     timeInSecForIosWeb: 1,
+  //     backgroundColor: Colors.red,
+  //     textColor: Colors.white,
+  //     fontSize: 16.0,
+  //   );
+  // }
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;

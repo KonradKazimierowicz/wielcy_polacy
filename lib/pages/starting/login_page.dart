@@ -19,9 +19,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: LayoutBuilder(
+    return SafeArea(
+      child: Scaffold(
+        body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
@@ -71,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                       MainButton(
                         text: "Zaloguj się",
                         onPressed: () async {
-                          await signIn(
-                              context, usernameController.text, passwordController.text);
+                          await signIn(context, usernameController.text,
+                              passwordController.text);
                         },
                       ),
                       const SizedBox(height: 20),
@@ -94,8 +94,9 @@ class _LoginPageState extends State<LoginPage> {
                                 fontSize: 12,
                               ),
                             ),
-                            onPressed: () =>
-                                {Navigator.pushNamed(context, "/register_page")},
+                            onPressed: () => {
+                              Navigator.pushNamed(context, "/register_page")
+                            },
                           ),
                         ],
                       ),
@@ -118,11 +119,13 @@ class _LoginPageState extends State<LoginPage> {
                           ElevatedButton(
                             onPressed: () {
                               final provider =
-                                  Provider.of<GoogleSignInProvider>(context, listen: false);
+                                  Provider.of<GoogleSignInProvider>(context,
+                                      listen: false);
                               provider.googleLogin(context);
                             },
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 10.0),
                               child: Image.asset(
                                 "img/google.png",
                                 height: 30,
