@@ -13,12 +13,12 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  final PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+  final PersistentTabController _controller = PersistentTabController(initialIndex: 1);
 
   final List<Widget> _widgetOptions = <Widget>[
     // const MenuPage(),
-    const MainPage(),
     const QuizPage(),
+    const MainPage(),
      ProfilePage(),
   ];
 
@@ -51,15 +51,15 @@ class _NavBarState extends State<NavBar> {
         //   inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         // ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home_outlined),
-          title: "Główna",
+          icon: const Icon(Icons.quiz_outlined),
+          title: "Quiz",
           textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
           activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
           inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.quiz_outlined),
-          title: "Quiz",
+          icon: const Icon(Icons.home_outlined),
+          title: "Główna",
           textStyle: const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 13 ),
           activeColorPrimary: const Color.fromRGBO(43, 42, 38, 1),
           inactiveColorPrimary: const Color.fromRGBO(43, 42, 38, 0.6),

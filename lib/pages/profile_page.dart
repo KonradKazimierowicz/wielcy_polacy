@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wielcy_polacy/pages/starting/login_page.dart';
 import 'package:restart_app/restart_app.dart';
+import 'package:wielcy_polacy/components/appbar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -112,6 +113,24 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  void _openAchievementsWindow() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AchievementsWindow(),
+      ),
+    );
+  }
+
+  void _openFAQWindow() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FAQWindow(),
+      ),
+    );
+  }
+
   Future<void> _logout() async {
     final googleSignIn = GoogleSignIn();
     try {
@@ -132,6 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Scaffold(
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Stack(
                 children: [
@@ -147,8 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Color.fromRGBO(184, 158, 119, 1),
-                      borderRadius:
-                          BorderRadius.vertical(bottom: Radius.circular(20)),
+                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
                     ),
                     child: Center(
                       child: Text(
@@ -183,8 +202,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Row(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 5),
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
                             ),
                             _profileImage(),
                             SizedBox(
@@ -205,28 +223,58 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               const SizedBox(height: 50),
-              GestureDetector(
-                onTap: _openFavoritesWindow,
-                child: Align(
-                  alignment: Alignment.center,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: _openFavoritesWindow,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.favorite_border, size: 25),
                       SizedBox(width: 10),
-                      Text(
-                        "Ulubione",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      SizedBox(width: 220),
+                      Text("Ulubione", style: TextStyle(fontSize: 20)),
+                      Spacer(),
                       Icon(Icons.arrow_forward_ios_outlined),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
-                height: 100,
+              SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: _openAchievementsWindow,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.emoji_events, size: 25),
+                      SizedBox(width: 10),
+                      Text("Osiągnięcia", style: TextStyle(fontSize: 20)),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios_outlined),
+                    ],
+                  ),
+                ),
               ),
+              SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: _openFAQWindow,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.question_answer, size: 25),
+                      SizedBox(width: 10),
+                      Text("FAQ", style: TextStyle(fontSize: 20)),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios_outlined),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 300),
               IconButton(
                 icon: Image.asset('img/signOut.png'),
                 onPressed: _logout,
@@ -243,10 +291,53 @@ class FavoritesWindow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Ulubione'),
+      appBar: CustomAppBar(
+        title: "Ulubione",
+        onLeadingPressed: () => Navigator.pop(context)
       ),
-      body: Text("")
+      body: Center(
+        child: Text(
+          "Miejsce na ulubione postacie",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+}
+
+class AchievementsWindow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: "Osiągnięcia",
+        onLeadingPressed: () => Navigator.pop(context)
+      ),
+      body: Center(
+        child: Text(
+          "Miejsce na osiągnięcia",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+}
+
+class FAQWindow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: "FAQ",
+        onLeadingPressed: () => Navigator.pop(context)
+      ),
+      body: Center(
+        child: Text(
+          "Najczęściej zadawane pytania",
+          style: TextStyle(fontSize: 20),
+          
+        ),
+      ),
     );
   }
 }

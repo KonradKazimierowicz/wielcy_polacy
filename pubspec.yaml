@@ -30,6 +30,8 @@ dependencies:
   persistent_bottom_nav_bar: any
   get: ^4.6.5
   persistent_bottom_nav_bar_v2: ^4.2.8
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
 
 dev_dependencies:
   flutter_test:
