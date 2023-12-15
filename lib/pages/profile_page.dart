@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wielcy_polacy/pages/starting/login_page.dart';
 import 'package:restart_app/restart_app.dart';
@@ -131,17 +132,23 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Future<void> _logout() async {
-    final googleSignIn = GoogleSignIn();
+  void _logout() async {
     try {
-      if (googleSignIn.currentUser != null) {
-        await googleSignIn.signOut();
-      }
+      
       await FirebaseAuth.instance.signOut();
+      print('Firebase sign-out successful');
+
+      
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
+      print('Google sign-out successful');
+
+      Navigator.pop(context); 
       Restart.restartApp();
-    } catch (e) {
-      print("Error during logout: $e");
-     
+    } catch (e, stackTrace) {
+      print('Error during logout: $e');
+      print('StackTrace: $stackTrace');
+      
     }
   }
 
@@ -203,8 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Row(
                           children: [
                             const Padding(
-                              padding:
-                                  EdgeInsets.symmetric(horizontal: 5),
+                              padding: EdgeInsets.symmetric(horizontal: 5),
                             ),
                             _profileImage(),
                             const SizedBox(
@@ -282,7 +288,11 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 300),
               IconButton(
                 icon: Image.asset('img/signOut.png'),
-                onPressed: _logout,
+                onPressed: () async {
+                  FirebaseAuth.instance.signOut();
+                  await GoogleSignIn().signOut();
+                  SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                },
               ),
             ],
           ),
@@ -352,13 +362,13 @@ class FAQWindow extends StatelessWidget {
               padding: EdgeInsets.all(20.0),
               child: Text(
                 "Aplikacja to wygodne źródło wiedzy o wielkich polakach takich jak Jan Czochralski, Witold Zglenicki, Stefan Drzewiecki i Jan Szczepaniak. \nW przystępny sposób pokazuje najważniejsze informacje o tych postaciach.",
-                style:
-                    TextStyle(
-                      color: Color.fromRGBO(43, 42, 38, 1), 
-                      fontSize: 20),
+                style: TextStyle(
+                    color: Color.fromRGBO(43, 42, 38, 1), fontSize: 20),
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Text(
               "2. Czy można korzystać z aplikacji offline?",
               style: TextStyle(
@@ -375,10 +385,8 @@ class FAQWindow extends StatelessWidget {
               padding: EdgeInsets.all(20.0),
               child: Text(
                 "Tak, z aplikacji można po zalogowaniu korzystać bez użycia internetu. Sprawia to, że jest ona jeszcze bardziej wszechstronna",
-                style:
-                    TextStyle(
-                      color: Color.fromRGBO(43, 42, 38, 1), 
-                      fontSize: 20),
+                style: TextStyle(
+                    color: Color.fromRGBO(43, 42, 38, 1), fontSize: 20),
               ),
             ),
             SizedBox(
@@ -400,10 +408,8 @@ class FAQWindow extends StatelessWidget {
               padding: EdgeInsets.all(20.0),
               child: Text(
                 "Aplikacja docelowo będzie zawierać specjalną zakładkę poświęconą multimediom. Na ten moment występują tylko przy opisach postacii.",
-                style:
-                    TextStyle(
-                      color: Color.fromRGBO(43, 42, 38, 1), 
-                      fontSize: 20),
+                style: TextStyle(
+                    color: Color.fromRGBO(43, 42, 38, 1), fontSize: 20),
               ),
             ),
           ],

@@ -83,6 +83,24 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
                 const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Masz już konto?"),
+                    TextButton(
+                      child: const Text(
+                        "Zaloguj się",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, "/login_page")},
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
                 const Divider(
                   thickness: 0.5,
                   color: Colors.grey,
@@ -115,24 +133,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 15),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Masz już konto?"),
-                    TextButton(
-                      child: const Text(
-                        "Zaloguj się",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
-                      onPressed: () =>
-                          {Navigator.pushNamed(context, "/login_page")},
-                    ),
-                  ],
-                )
               ],
             ),
           ),

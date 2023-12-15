@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                             "Nie masz jeszcze konta?",
                             style: TextStyle(
                               color: Color.fromARGB(255, 70, 69, 69),
-                              fontSize: 12,
+                              fontSize: 15,
                             ),
                           ),
                           TextButton(
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                               "Zarejestruj się",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12,
+                                fontSize: 15,
                               ),
                             ),
                             onPressed: () => {
@@ -107,9 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        "Or continue with",
+                        "Lub kontynuuj przez",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 15,
                         ),
                       ),
                       const SizedBox(height: 20),

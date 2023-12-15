@@ -25,25 +25,25 @@ class ScoreScreen extends StatelessWidget {
                   fit: BoxFit.cover, // Ensure the image covers the entire space
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
                 width: 500,
               ),
-              Text("Wynik",
+              const Text("Wynik",
                   style: TextStyle(
                     color: primaryColor,
                     fontSize: 40,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                   "${_qnController.numOfCorrectAns}/${_qnController.questions.length}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: primaryColor,
                     fontSize: 30,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               MainButton(
