@@ -8,7 +8,7 @@ Aplikacja dotycząca czterach polaków niedocenianych przez naród. Znajdziesz t
 ## Instalacja
 
 Wersja szybka (zalecana): \
-[Pobierz plik apk na telefon z systemem Android](https://drive.google.com/file/d/16PB3OiwGSq24aVa2RXGmtXDqRRoqEk_c/view?usp=drive_link](https://drive.google.com/file/d/16PB3OiwGSq24aVa2RXGmtXDqRRoqEk_c/view?usp=sharing))
+[Pobierz plik apk na telefon z systemem Android]([https://drive.google.com/file/d/16PB3OiwGSq24aVa2RXGmtXDqRRoqEk_c/view?usp=drive_link](https://drive.google.com/file/d/16PB3OiwGSq24aVa2RXGmtXDqRRoqEk_c/view?usp=sharing)](https://drive.google.com/file/d/16PB3OiwGSq24aVa2RXGmtXDqRRoqEk_c/view?usp=sharing))
 
 Wersja wolna: \
 Pobierz oraz zainstaluj Android Studio, sklonuj to repozytorium, podłącz telefon do komputera przez kabel usb, a następnie zbuduj aplikację na telefon lub na emulator.
