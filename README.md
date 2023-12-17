@@ -1,16 +1,20 @@
-# wielcy_polacy
 
-A new Flutter project.
+## Projekt Niezapomniani
+# Wielcy Polacy
 
-## Getting Started
+Aplikacja dotycząca czterach polaków niedocenianych przez naród. Znajdziesz tam opisy życia i działalności Jan Czochralskiego, Witold Zglenickiego, Stefan Drzewieckiego i Jan Szczepaniaka. Dodatkowo sprawdź swoją wiedzę wykonując QUIZ dostępny również w aplikacji.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Instalacja
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Wersja szybka (zalecana): \
+[Pobierz plik apk na telefon z systemem Android](https://drive.google.com/file/d/154XawR6yGYnLarTaS5vE3NrtK13IXggW/view?usp=sharing)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Wersja wolna: \
+Pobierz oraz zainstaluj Android Studio, sklonuj to repozytorium, podłącz telefon do komputera przez kabel usb, a następnie zbuduj aplikację na telefon.
+
+
+## Autor
+
+- [Konrad Kazimierowicz](https://github.com/KonradKazimierowicz)
+
