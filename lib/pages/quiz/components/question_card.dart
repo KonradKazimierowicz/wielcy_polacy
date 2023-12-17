@@ -27,27 +27,34 @@ class QuestionCard extends StatelessWidget {
         border: Border.all(color: primaryColor, width: 3),
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(
-        children: [
-          Text(
-            question.question,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                ?.copyWith(color: Color.fromRGBO(43, 42, 38, 1)),
-          ),
-          const SizedBox(height: kDefaultPadding / 2),
-          ...List.generate(
-            question.options.length,
-            (index) => Option(
-              index: index,
-              text: question.options[index],
-              press: () => controller.checkAns(question, index),
-            ),
-          ),
-          SizedBox(height: 40,),
-          MainButton(text: "Następne", onPressed: () => controller.nextQuestion(),)
-        ],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                question.question,
+                style:  TextStyle(color: Color.fromRGBO(43, 42, 38, 1) ,fontSize:18)),
+              
+              const SizedBox(height: kDefaultPadding / 2),
+              ...List.generate(
+                question.options.length,
+                (index) => Option(
+                  index: index,
+                  text: question.options[index],
+                  press: () => controller.checkAns(question, index),
+                ),
+              ),
+              SizedBox(
+                height: constraints.maxWidth > 600 ? 20 : 10,
+              ),
+              MainButton(
+                text: "Następne",
+                onPressed: () => controller.nextQuestion(),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

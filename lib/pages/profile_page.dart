@@ -284,8 +284,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              const SizedBox(height: 300),
+              const SizedBox(height: 200),
               IconButton(
                 icon: Image.asset('img/signOut.png'),
                 onPressed: () async {

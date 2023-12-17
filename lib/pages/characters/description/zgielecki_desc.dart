@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wielcy_polacy/components/appbar.dart';
 
-class ZgieleckiDesc extends StatefulWidget {
-  ZgieleckiDesc({Key? key}) : super(key: key);
+class ZgieleckiDesc extends StatelessWidget {
+   ZgieleckiDesc({Key? key}) : super(key: key);
 
-  @override
-  State<ZgieleckiDesc> createState() => _ZgieleckiDescState();
-}
-
-class _ZgieleckiDescState extends State<ZgieleckiDesc> {
   TextStyle listStyle =
       const TextStyle(color: Color.fromRGBO(43, 42, 38, 1), fontSize: 20);
 
@@ -27,7 +22,7 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: 20),
-                const Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Podstawowe informacje:",
@@ -44,52 +39,91 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "• Urodzony 6 stycznia 1850 rokuw Wargawie w Królestwie Polskim.",
-                              style: TextStyle(
-                                color: Color.fromRGBO(43, 42, 38, 1),
-                                fontSize: 18,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "• Był uczniem Dmitrija Mendelejewa.",
-                              style: TextStyle(
-                                color: Color.fromRGBO(43, 42, 38, 1),
-                                fontSize: 18,
-                              ),
-                              softWrap: true,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "• Zmarł 6 lipca 1904 roku w Baku w Imperium Rosyjskim",
-                              style: TextStyle(
-                                color: Color.fromRGBO(43, 42, 38, 1),
-                                fontSize: 18,
-                              ),
-                              softWrap: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Image.asset(
-                        'img/zgielecki1.png',
-                        alignment: Alignment.center,
-                      ),
-                    ],
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return constraints.maxWidth > 600
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "• Urodzony 6 stycznia 1850 roku w Warszawie w Królestwie Polskim.",
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(43, 42, 38, 1),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      SizedBox(height: 10),
+                                      Text(
+                                        "• Był uczniem Dmitrija Mendelejewa.",
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(43, 42, 38, 1),
+                                          fontSize: 18,
+                                        ),
+                                        softWrap: true,
+                                      ),
+                                      SizedBox(height: 10),
+                                      Text(
+                                        "• Zmarł 6 lipca 1904 roku w Baku w Imperium Rosyjskim",
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(43, 42, 38, 1),
+                                          fontSize: 18,
+                                        ),
+                                        softWrap: true,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                Image.asset(
+                                  'img/zgielecki1.png',
+                                  alignment: Alignment.center,
+                                ),
+                              ],
+                            )
+                          : Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "• Urodzony 6 stycznia 1850 roku w Warszawie w Królestwie Polskim.",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(43, 42, 38, 1),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "• Był uczniem Dmitrija Mendelejewa.",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(43, 42, 38, 1),
+                                    fontSize: 18,
+                                  ),
+                                  softWrap: true,
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "• Zmarł 6 lipca 1904 roku w Baku w Imperium Rosyjskim",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(43, 42, 38, 1),
+                                    fontSize: 18,
+                                  ),
+                                  softWrap: true,
+                                ),
+                                SizedBox(height: 10),
+                                Image.asset(
+                                  'img/zgielecki1.png',
+                                  alignment: Alignment.center,
+                                ),
+                              ],
+                            );
+                    },
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Edukacja:",
@@ -109,16 +143,16 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "• W latach 1859–1866 Witold uczęszczał do Gimnazjum Gubernialnym w Płocku.",
+                      Text(
+                        "• W latach 1859–1866 Witold uczęszczał do Gimnazjum Gubernialnego w Płocku.",
                         style: TextStyle(
                           color: Color.fromRGBO(43, 42, 38, 1),
                           fontSize: 18,
                         ),
                         softWrap: true,
                       ),
-                      const SizedBox(height: 10),
-                      const Text(
+                      SizedBox(height: 10),
+                      Text(
                         "Po ukończeniu gimnazjum w latach 1866–1870 studiował na Wydziale Matematyczno-Fizycznym Szkoły Głównej Warszawskiej i w latach 1870–1875 w Instytucie Górniczym w Petersburgu.",
                         style: TextStyle(
                           color: Color.fromRGBO(43, 42, 38, 1),
@@ -126,8 +160,8 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                         ),
                         softWrap: true,
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
+                      SizedBox(height: 20),
+                      Text(
                         "Wynalazki:",
                         style: TextStyle(
                           color: Color.fromRGBO(43, 42, 38, 1),
@@ -135,11 +169,11 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const Divider(
+                      Divider(
                         color: Color.fromRGBO(43, 42, 38, 1),
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
+                      SizedBox(height: 20),
+                      Text(
                         "• Platforma Wiertnicza:",
                         style: TextStyle(
                           color: Color.fromRGBO(43, 42, 38, 1),
@@ -148,10 +182,10 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                         ),
                         softWrap: true,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           "Zglenicki zaprojektował platformę wiertniczą do podmorskich wierceń, co uczyniło go pionierem w tej dziedzinie. To urządzenie umożliwiło skuteczniejsze i bezpieczniejsze prowadzenie prac wydobywczych na dnie morskim.",
@@ -162,11 +196,11 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                           softWrap: true,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
+                      SizedBox(height: 20),
+                      Text(
                         "• Baku - pole naftowe:",
                         style: TextStyle(
                           color: Color.fromRGBO(43, 42, 38, 1),
@@ -175,19 +209,46 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                         ),
                         softWrap: true,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Expanded(
-                                child: Column(
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          return constraints.maxWidth > 600
+                              ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Polski wynalazca odkrył złoża naftowe w Baku tworząc to miejsce wyjątkowym, bardzo dochodowym. Został uhonorowany Orderem Lwa i Słońca za swoje osiągnięcie geologiczne.",
+                                            style: TextStyle(
+                                              color: Color.fromRGBO(43, 42, 38, 1),
+                                              fontSize: 18,
+                                            ),
+                                            softWrap: true,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(width: 20),
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'img/orderLwa.png',
+                                          alignment: Alignment.center,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text("(Order Lwa i Słońca)")
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -196,28 +257,22 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                                         color: Color.fromRGBO(43, 42, 38, 1),
                                         fontSize: 18,
                                       ),
+                                      softWrap: true,
                                     ),
+                                    SizedBox(width: 20),
+                                    Image.asset(
+                                      'img/orderLwa.png',
+                                      alignment: Alignment.center,
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text("(Order Lwa i Słońca)")
                                   ],
-                                ),
-                              ),
-                              const SizedBox(width: 20),
-                              Column(
-                                children: [
-                                  Image.asset(
-                                    'img/orderLwa.png',
-                                    alignment: Alignment.center,
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  const Text("(Order Lwa i Słońca)")
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+                                );
+                        },
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
                       Align(
@@ -227,17 +282,17 @@ class _ZgieleckiDescState extends State<ZgieleckiDesc> {
                           alignment: Alignment.center,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
-                      const Align(
+                      Align(
                         alignment: Alignment.center,
                         child: Text(
                           "(Pole naftowe w Baku)",
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      const SizedBox(height: 60,),
+                      SizedBox(height: 60,),
                     ],
                   ),
                 ),
