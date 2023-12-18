@@ -72,7 +72,7 @@ class MainPage extends StatelessWidget {
                           imageTexts: [
                             'Jan Szczepaniak',
                             'Jan Czochralski',
-                            'Witold Zgiełłcki',
+                            'Witold Zglenicki',
                             'Stefan Drzewiecki',
                           ],
                         ),
